@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>University Chatbot</title>
+    <style>
+      .chat-container {
+          height: 400px;
+          overflow-y: scroll;
+          border: 1px solid #ccc;
+          padding: 10px;
+      }
+
+      .user-message {
+          background-color: #e9e9e9; /* Light gray for user */
+          margin-bottom: 5px;
+          padding: 5px 10px;
+          border-radius: 10px;
+          align-self: flex-end; /* Align to the right */
+
+      }
+
+      .bot-message {
+          background-color: #a7d2cb; /* Light blue-green for chatbot */
+          margin-bottom: 5px;
+          padding: 5px 10px;
+          border-radius: 10px;
+          align-self: flex-start; /* Align to the left */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>University Chatbot</h1>
+    <form method="POST">
+      <input type="text" name="user_input" placeholder="Ask a question..." />
+      <button type="submit">Ask</button>
+    </form>
+    {% if answer %}
+    <p><strong>You asked:</strong> {{ question }}</p>
+    <p><strong>Chatbot:</strong> {{ answer }}</p>
+    <audio controls autoplay>
+      <source
+        src="data:audio/mpeg;base64,{{ audio_base64 }}"
+        type="audio/mpeg"
+      />
+    </audio>
+    {% endif %}
+  </body>
+</html>
