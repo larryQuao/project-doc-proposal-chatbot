@@ -1,0 +1,12 @@
+transformers>=4.31.0  # Or the latest version
+torch
+accelerate
+bitsandbytes
+datasets
+sentencepiece  # For Llama 2 tokenizer
+Flask
+gTTS
+PyPDF2 # For processing PDFs
+python-docx # For processing Word documents
+Pillow #For image processing
+librosa #For audio processing
