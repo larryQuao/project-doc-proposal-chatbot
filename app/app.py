@@ -5,7 +5,7 @@ print(torch.cuda.is_available())
 
 app = Flask(__name__, template_folder='../templates')
 
-model_name = "google/flan-t5-base"
+model_name = "google/flan-t5-large"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 
@@ -90,6 +90,8 @@ def index():
         user_question = request.form["user_input"]
         answer, conversation_history = get_answer(user_question, conversation_history)
         audio_base64 = get_audio_base64(answer)
+        print("-" * 20)
+        print(f"User: {user_question}")
         print("-" * 20)
         print(conversation_history)
         print("-" * 20)
